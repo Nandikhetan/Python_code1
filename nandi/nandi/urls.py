@@ -16,14 +16,18 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.urlpatterns import format_suffix_patterns
 
-
-
+from projectapp import views
+from projectapp.views import StudentInfoForm
+from projectapp.views import StudentDetailView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Reverse.urls')),
+    path('', include('projectapp.urls')),
+    path('',StudentInfoForm.as_view()),
+    path('',StudentDetailView.as_view()),
+    path('',views.detail_view),
+
 
 ]
